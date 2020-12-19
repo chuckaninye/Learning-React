@@ -8,6 +8,7 @@ function App() {
   
   return (
     <>
+    <span>{userName === 'Chuck' && password === 'Aninye' && <p>Hello Chuck Aninye</p>}</span>
     <input type="text" value={userName} onChange={updateUserName}/>
     <input type="password" value={password} onChange={updatePassword}/>
     <button onClick={submitForm}>Submit Form</button>
