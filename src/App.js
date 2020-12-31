@@ -1,42 +1,46 @@
 import React from "react";
 import './index.css'
 
-const firstBook = {
-  title: 'The Very Hungry Caterpillar',
-  image: 'https://images-na.ssl-images-amazon.com/images/I/71KilybDOoL._AC_UL200_SR200,200_.jpg',
-  author: 'Eric Carle'
-}
-
-const secondBook = {
-  title: 'If Animals Kissed Good Night',
-  image: 'https://images-na.ssl-images-amazon.com/images/I/817T4J3dzhL._AC_UL200_SR200,200_.jpg',
-  author: 'Ann Whitford Paul'
-}
-
+const books = [
+  {
+    id: 1,
+    title: 'The Very Hungry Caterpillar',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/71KilybDOoL._AC_UL200_SR200,200_.jpg',
+    author: 'Eric Carle'
+  }, 
+  {
+    id: 2,
+    title: 'If Animals Kissed Good Night',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/817T4J3dzhL._AC_UL200_SR200,200_.jpg',
+    author: 'Ann Whitford Paul'
+  },
+  {
+    id: 3,
+    title: 'Brown Bear, Brown Bear, What Do You See?',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/51430n+9jlL._SX355_BO1,204,203,200_.jpg',
+    author: 'Bill Martin Jr.'
+  },
+];
 
 function App() {
   return (
     <div className="app">
-    <Book 
-    img={firstBook.image}
-    title={firstBook.title}
-    author={firstBook.author} />
-    <Book 
-    img={secondBook.image}
-    title={secondBook.title}
-    author={secondBook.author} />
+    {books.map((books) => {
+      return <Book key={books.id} {...books}/>
+    })
+  }   
     </div>
-    
   );
-
+ 
 }
 
 const Book = (props) => {
+  const {img, title, author} = props
   return (
     <article className="book">
-    <img src={props.img}/> 
-    <h1>{props.title}</h1>
-    <h4>{props.author}</h4>
+    <img src={img} alt=''/> 
+    <h1>{title}</h1>
+    <h4>{author}</h4>
     </article>
   )
 }
