@@ -36,11 +36,20 @@ function App() {
 
 const Book = (props) => {
   const {img, title, author} = props
+
+  function mouseHandler(title){
+    console.log(title)
+  }
+
+  function clickHandler(author){
+    console.log(author)
+  }
   return (
-    <article className="book">
+    <article className="book" onMouseOver={() => mouseHandler(title)}>
     <img src={img} alt=''/> 
     <h1>{title}</h1>
     <h4>{author}</h4>
+    <button type="button" onClick={() => clickHandler(author)}>reference example</button>
     </article>
   )
 }
